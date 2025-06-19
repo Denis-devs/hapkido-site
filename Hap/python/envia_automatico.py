@@ -1,0 +1,1 @@
+# Script de envio automático de cobrança via e-mail

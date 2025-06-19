@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<title>Cadastro de Aluno</title>
+
+<style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('images/fundo-pintura.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+
+    .voltar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #ffd93b;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .voltar:hover {
+      background: #e0c128;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd93b;
+      font-size: 3.2rem;
+      margin-bottom: 3rem;
+      text-shadow: 2px 2px 12px #000;
+      letter-spacing: 1px;
+    }
+
+    .grade {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      flex: 1 1 320px;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 2.2rem;
+      border-radius: 18px;
+      border: 2px solid #ffd93b;
+      box-shadow: 0 0 20px rgba(255, 217, 59, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px rgba(255, 217, 59, 0.4);
+    }
+
+    .card h2 {
+      color: #ffd93b;
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      text-shadow: 1px 1px 4px #000;
+    }
+
+    .sub {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 1.2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+
+    .icon {
+      margin-right: 8px;
+      font-size: 1.4rem;
+    }
+
+    .horario {
+      color: #ffe564;
+      font-weight: bold;
+      margin-left: 6px;
+    }
+
+    .info-extra {
+      font-size: 0.9rem;
+      color: #bbb;
+      margin-left: 8px;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .grade {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    .card.infantil {
+  flex-basis: 380px; /* mais largo que os demais */
+}
+.card.combate {
+  flex-basis: 280px;
+}
+  
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('images/fundo-pintura.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      text-align: center;
+    }
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 0.8rem 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #ffd93b;
+      font-weight: bold;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .coreano {
+      font-size: 3rem;
+      color: #ffd93b;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .legenda {
+      font-size: 1.2rem;
+      color: #eee;
+      margin-bottom: 1.5rem;
+    }
+
+    .lemas {
+      font-size: 1.1rem;
+      background-color: rgba(0,0,0,0.4);
+      color: #ffd93b;
+      max-width: 600px;
+      margin: 2rem auto;
+      line-height: 1.8;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      border: 2px solid #ffd93b;
+    }
+
+    .botoes a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .botoes .instagram {
+      background-color: #b22222;
+    }
+
+    .botoes .maps {
+      background-color: #003f88;
+    }
+
+    .section {
+      margin-top: 3rem;
+      padding: 1rem;
+    }
+
+    iframe {
+      border: none;
+      border-radius: 12px;
+      max-width: 100%;
+    }
+
+    .section h2 {
+      color: #ffd93b;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      .coreano { font-size: 2rem; }
+      nav ul { flex-direction: column; align-items: center; }
+    }
+  
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('images/fundo-pintura.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+      min-height: 100vh;
+    }
+
+    .voltar {
+      align-self: flex-start;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      color: #ffd93b;
+      text-decoration: none;
+      background: rgba(0,0,0,0.6);
+      padding: 10px 20px;
+      border-radius: 30px;
+    }
+
+    .card-login {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #ffd93b55;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card-login img {
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #ffd93b;
+      font-size: 2rem;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid #ffd93b;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .tabs .active {
+      background-color: #ffd93b;
+      color: #000;
+    }
+
+    .tabs button:not(.active) {
+      background-color: transparent;
+      color: #ffd93b;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #000;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #ffd93b;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #f5c900;
+    }
+
+    .esqueci {
+      display: block;
+      margin-top: 1rem;
+      color: #ccc;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .esqueci:hover {
+      text-decoration: underline;
+    }
+
+    /* Fade-in/out */
+    .fade {
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+
+    .fade.show {
+      opacity: 1;
+      position: relative;
+    }
+  
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, #1540a177 60%, #d71d2377 100%),
+        url('images/hapkido-banner.png') center center / cover no-repeat;
+      background-blend-mode: multiply;
+      color: #fff;
+      background-color: #10141a;
+    }
+    .container-main {
+      max-width: 1100px;
+      margin: 0 auto 50px auto;
+      padding-top: 50px;
+      padding-bottom: 40px;
+    }
+    .page-title {
+      text-align: center;
+      color: #ffd93b;
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 22px;
+      text-shadow: 2px 2px 14px #000c;
+    }
+    .page-desc {
+      text-align: center;
+      color: #fff;
+      font-size: 1.18em;
+      margin-bottom: 44px;
+      text-shadow: 1px 1px 12px #000b;
+    }
+    .card-plan {
+      background: rgba(24,31,46,0.94);
+      border-radius: 20px;
+      box-shadow: 0 4px 22px #001a4133;
+      border: 3px solid #ffd93b44;
+      color: #fff;
+      text-align: center;
+      padding: 34px 20px 22px 20px;
+      margin-bottom: 28px;
+      transition: transform 0.15s;
+    }
+    .card-plan:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 28px #0008;
+    }
+    .card-plan .plan-title {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #ffd93b;
+      margin-bottom: 14px;
+      letter-spacing: .8px;
+      text-shadow: 1px 1px 7px #000c;
+    }
+    .card-plan .plan-price {
+      font-size: 2.1em;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #fff;
+      text-shadow: 2px 2px 10px #d71d2377;
+    }
+    .card-plan .desc {
+      color: #ffd93b;
+      font-size: 1.04em;
+      margin-bottom: 16px;
+    }
+    .card-plan ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 18px;
+    }
+    .card-plan ul li {
+      color: #fff;
+      font-size: 1.03em;
+      margin-bottom: 7px;
+    }
+    .btn-pagar {
+      background: #ffd93b;
+      color: #1540a1;
+      font-weight: bold;
+      padding: 10px 38px;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 2px 12px #0004;
+      font-size: 1.08em;
+      margin-top: 6px;
+      transition: 0.2s;
+    }
+    .btn-pagar:hover {
+      background: #d71d23;
+      color: #fff;
+    }
+    .badge-desc {
+      background: #d71d23;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 5px 15px;
+      margin-left: 6px;
+      font-size: 1em;
+    }
+    .pix-info {
+      color: #ffd93b;
+      text-align: center;
+      margin-top: 40px;
+      font-size: 1.08em;
+    }
+    @media (max-width: 900px) {
+      .container-main { padding-top: 28px; }
+    }
+    @media (max-width: 768px) {
+      .page-title { font-size: 1.2rem; }
+      .container-main { padding: 0 5px 25px 5px; }
+    }
+  
+    body { background: #f6f7fb; }
+    .rec-section { background: #fff; border-radius: 1rem; box-shadow: 0 3px 18px rgba(0,0,0,0.08); padding: 32px; max-width: 400px; margin: 60px auto; }
+    .rec-title { color: #004aad; font-size: 1.5rem; text-align: center; margin-bottom: 24px; }
+    .logo-top { display: block; margin: 0 auto 18px auto; width: 62px; }
+  
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+    }
+
+    .sobre {
+      background: url('images/hapkido-banner.png');
+      background-size: cover;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: left;
+      padding: 60px 20px 20px;
+      position: relative;
+      flex-direction: column;
+    }
+
+    .voltar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ffd93b;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .voltar:hover {
+      background-color: #e0c128;
+    }
+
+    .conteudo {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 5px;
+      border-radius: 10px;
+      max-width: 900px;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #ffd93b;
+      text-align: center;
+    }
+
+    h2 {
+      color: #ffd93b;
+      font-size: 1.6em;
+      margin-top: 2rem;
+    }
+
+    p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    strong {
+      color: #ffd93b;
+    }
+  
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: url('../images/fundo-pintura.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+
+    .voltar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ffd93b;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .voltar:hover {
+      background-color: #e6c22e;
+    }
+
+    .container {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 2rem 3rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(255, 217, 59, 0.3);
+      max-width: 500px;
+      width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffd93b;
+      margin-bottom: 2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+      color: #ffd93b;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: none;
+      background-color: #f8f8f8;
+      color: #000;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background-color: #ffd93b;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e6c22e;
+    }
+  
+    body { background: #f6f7fb; }
+    .header-aluno { background: #004aad; color: #fff; padding: 18px 0 8px 0; }
+    .logo-header { width: 48px; margin-right: 12px; }
+    .painel-title { font-size: 1.3rem; font-weight: 700; color: #fff; }
+    .card-painel { background: #fff; border-radius: 1rem; box-shadow: 0 3px 12px rgba(0,0,0,0.07); padding: 22px 22px 8px 22px; margin-bottom: 18px; }
+    .status-pago { color: #20c997; font-weight: bold;}
+    .status-pendente { color: #ffc107; font-weight: bold;}
+    .status-vencido { color: #d71d23; font-weight: bold;}
+    .btn-sair { position: absolute; right: 24px; top: 22px; }
+    .small-label { color: #888; font-size: 0.97em;}
+  
+    body {
+      font-family: Arial, sans-serif;
+      background: #17213a;
+      color: #fff;
+      padding: 20px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    }
+    input, textarea, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #ffd93b;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  
+    body { background: #f6f7fb; }
+    .header-prof { background: #004aad; color: #fff; padding: 18px 0 8px 0; }
+    .logo-header { width: 48px; margin-right: 12px; }
+    .btn-voltar { position: absolute; left: 24px; top: 22px; }
+    .detalhes-card { background: #fff; border-radius: 1rem; box-shadow: 0 3px 12px rgba(0,0,0,0.07); padding: 28px 24px 18px 24px; margin-bottom: 18px; }
+    .form-label { font-weight: 500; }
+    .status-pago { color: #20c997; font-weight: bold;}
+    .status-pendente { color: #ffc107; font-weight: bold;}
+    .status-vencido { color: #d71d23; font-weight: bold;}
+    .mt-4 { margin-top: 1.7rem !important; }
+  
+    body { background: #f6f7fb; }
+    .header-prof { background: #004aad; color: #fff; padding: 18px 0 8px 0; }
+    .logo-header { width: 48px; margin-right: 12px; }
+    .table thead { background: #e9f1fa; }
+    .table tbody tr td, .table th { vertical-align: middle; }
+    .status-pago { color: #20c997; font-weight: bold;}
+    .status-pendente { color: #ffc107; font-weight: bold;}
+    .status-vencido { color: #d71d23; font-weight: bold;}
+    .painel-title { font-size: 1.4rem; font-weight: 700; color: #004aad; }
+    .filtros { background: #fff; border-radius: 10px; box-shadow: 0 3px 12px rgba(0,0,0,0.07); padding: 18px; margin-bottom: 18px; }
+    .btn-edit, .btn-cobrar { font-size: 0.97em; }
+    .btn-sair { position: absolute; right: 24px; top: 22px; }
+  
+</style></head>
+<body>
+<div class="container">
+<h2>Cadastro de Novo Aluno</h2>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class="flash">
+        {% for msg in messages %}
+          <li>{{ msg }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="POST">
+<label>Nome:</label><input name="nome" required="" type="text"/><br/>
+<label>Email:</label><input name="email" required="" type="email"/><br/>
+<label>Telefone:</label><input name="telefone" required="" type="text"/><br/>
+<label>Data de Nascimento:</label><input name="nascimento" required="" type="date"/><br/>
+<label>Faixa Etária:</label>
+<select name="faixa_etaria">
+<option value="infantil">Infantil (05 a 12 anos)</option>
+<option value="adulto">Adulto (13+)</option>
+</select><br/>
+<button type="submit">Cadastrar</button>
+</form>
+<a href="{{ url_for('index') }}">← Voltar</a>
+</div>
+</body>
+</html>
