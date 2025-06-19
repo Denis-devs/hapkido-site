@@ -1,1 +1,0 @@
-// JS futuro para validações e interações

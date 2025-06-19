@@ -1,1 +1,0 @@
-Coloque seu credentials.json na pasta python/ e rode os scripts conforme instruções.

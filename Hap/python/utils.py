@@ -1,1 +1,0 @@
-# Funções auxiliares como leitura do Google Sheets, envio de e-mail etc.

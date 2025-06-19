@@ -1,1 +1,0 @@
-# Placeholder for send_email script
