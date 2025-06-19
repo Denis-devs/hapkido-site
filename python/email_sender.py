@@ -1,0 +1,1 @@
+// Conteúdo fictício de email_sender.py

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Login - Instituto Dok Su Ri</title>
+  <link href="images/logo.png" rel="icon" type="image/png"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('images/fundo-pintura.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 16px;
+      min-height: 100vh;
+    }
+
+    .voltar {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ffd93b;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .voltar:hover {
+      background-color: #e6c22e;
+    }
+
+    .card-login {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      box-shadow: 0 0 15px #ffd93b55;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .card-login img {
+      height: 80px;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #ffd93b;
+      font-size: 2rem;
+    }
+
+    .tabs {
+      display: flex;
+      margin-bottom: 1.5rem;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid #ffd93b;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .tabs .active {
+      background-color: #ffd93b;
+      color: #000;
+    }
+
+    .tabs button:not(.active) {
+      background-color: transparent;
+      color: #ffd93b;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: bold;
+      margin: 10px 0 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      color: #000;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #ffd93b;
+      color: #000;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #f5c900;
+    }
+
+    .esqueci {
+      display: block;
+      margin-top: 1rem;
+      color: #ccc;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .esqueci:hover {
+      text-decoration: underline;
+    }
+
+    /* Transição de fade */
+    .fade {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+      position: absolute;
+      width: 100%;
+      left: 0;
+    }
+
+    .fade.show {
+      opacity: 1;
+      pointer-events: all;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+  <a class="voltar" href="index.html">← Voltar ao Início</a>
+  <div class="card-login">
+    <img alt="Logo Dok Su Ri" src="images/logo.png"/>
+    <h2>Login</h2>
+    <div class="tabs">
+      <button class="active" id="btnAluno">Aluno</button>
+      <button id="btnProfessor">Professor</button>
+    </div>
+
+    <!-- Formulário Aluno -->
+    <form autocomplete="off" class="fade show" id="formAluno">
+      <label for="emailAluno">E-mail</label>
+      <input id="emailAluno" maxlength="70" required type="email"/>
+      <label for="senhaAluno">Senha</label>
+      <input id="senhaAluno" minlength="4" required type="password"/>
+      <button class="btn" type="submit">Entrar como Aluno</button>
+      <a class="esqueci" href="#">Esqueci minha senha</a>
+    </form>
+
+    <!-- Formulário Professor -->
+    <form autocomplete="off" class="fade" id="formProfessor">
+      <label for="emailProf">E-mail</label>
+      <input id="emailProf" maxlength="70" required type="email"/>
+      <label for="senhaProf">Senha</label>
+      <input id="senhaProf" minlength="4" required type="password"/>
+      <button class="btn" type="submit">Entrar como Professor</button>
+      <a class="esqueci" href="#">Esqueci minha senha</a>
+    </form>
+  </div>
+
+  <script>
+  const btnAluno = document.getElementById('btnAluno');
+  const btnProfessor = document.getElementById('btnProfessor');
+  const formAluno = document.getElementById('formAluno');
+  const formProfessor = document.getElementById('formProfessor');
+
+  function mostrarFormulario(formMostrar, formOcultar, btnAtivo, btnInativo) {
+    formMostrar.classList.add('show');
+    formMostrar.style.display = "block";
+
+    formOcultar.classList.remove('show');
+    formOcultar.style.display = "none";
+
+    btnAtivo.classList.add('active');
+    btnInativo.classList.remove('active');
+  }
+
+  // Estado inicial: apenas formulário de aluno visível
+  window.onload = () => {
+    formAluno.style.display = "block";
+    formProfessor.style.display = "none";
+  };
+
+  btnAluno.onclick = () => {
+    mostrarFormulario(formAluno, formProfessor, btnAluno, btnProfessor);
+  };
+
+  btnProfessor.onclick = () => {
+    mostrarFormulario(formProfessor, formAluno, btnProfessor, btnAluno);
+  };
+
+  formAluno.onsubmit = function(e) {
+    e.preventDefault();
+    window.location.href = "aluno/painel.html";
+  };
+
+  formProfessor.onsubmit = function(e) {
+    e.preventDefault();
+    window.location.href = "professor/painel.html";
+  };
+</script>
+
+</body>
+</html>
